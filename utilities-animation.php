@@ -1,4 +1,7 @@
-                <!-- Begin Page Content -->
+<?php
+include_once "includes/header.inc.php";
+?>       
+              <!-- Begin Page Content -->
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
