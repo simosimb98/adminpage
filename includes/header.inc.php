@@ -91,8 +91,7 @@ if (!isset($_SESSION['role']) == 1) {
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Admins:</h6>
-                        <a class="collapse-item" href="admins.php">Admins</a>
-                        <a class="collapse-item" href="addNewAdmin.php">Add new admin</a>
+                        <a class="collapse-item" href="admins.php">Admins Table</a>
                        
                     </div>
                 </div>

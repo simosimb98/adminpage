@@ -21,8 +21,6 @@ if($resultCheck > 0){
                   
                  <a href='pendingUsers.php?userID=";
         echo $row["userID"]."&name=";echo $row['name']."&surname=";;echo $row['surname']."&phone=";echo $row['phone']."&email=";;echo $row['email'];
-        echo "&modal=editCheckedUser' class='edit'><i class='fas fa-edit' data-toggle='tooltip' title='Edit'>&#xE254;</i></a>
-                 <a href='pendingUsers.php?userID=";
         echo $row["userID"];
         echo "&modal=deletePendingUser'  class='delete'><i class='far fa-trash-alt' data-toggle='tooltip' title='Delete'>&#xE872;</i></a>   
         <a href='pendingUsers.php?userID=";
