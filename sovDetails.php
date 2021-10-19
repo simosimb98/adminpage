@@ -21,14 +21,16 @@ include_once "includes/header.inc.php";
                                             <th>User ID</th>
                                             <th>Name</th>
                                             <th>Surname</th>
-                                            <th>Email</th>
-                                            <th>Phone</th>
-                                            <th>Status</th>
-                                            <th>Actions</th>
+                                            <th>Country</th>
+                                            <th>City</th>
+                                            <th>Address</th>
+                                            <th>Postal Code</th>
+                                            <th>Shop</th>
+                                            <th>Cooperates</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                      <?php include_once "includes/verifiedUsersTable.inc.php"; ?>
+                                      <?php include_once "includes/sovDetailsTable.inc.php"; ?>
                                     </tbody>
                                 </table>
                             </div>
@@ -40,28 +42,43 @@ include_once "includes/header.inc.php";
 
             </div>
             <!-- End of Main Content -->
- 
-             <!-- Delete Modal HTML -->
-    <div id="deleteVerifiedUser" class="modal fade">
+
+             <!-- Edit Modal HTML -->
+    <div id="editUserDetails" class="modal fade">
         <div class="modal-dialog">
             <div class="modal-content">
-                <form action="includes/deleteVerifiedUser.inc.php" method="POST">
+                <form action="includes/editUserDetails.inc.php" method="POST">
                     <div class="modal-header">
-                        <h4 class="modal-title">Deactivate Customer</h4>
+                        <h4 class="modal-title">Edit User Details</h4>
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                     </div>
                     <div class="modal-body">
-                        <p>Are you sure</p>
-                        <p class="text-warning"><small>This user's will no longer be able to log in with his credentials!</small></p>
+                        <div class="form-group">
+                            <label>City*</label>
+                            <input type="text" class="form-control" name="city" value= '<?php echo $_GET['city']?>' required>
+                        </div>
+                        <div class="form-group">
+                            <label>Address*</label>
+                            <input type="text" class="form-control" name="address" value= '<?php echo $_GET['address']?>' required>
+                        </div>
+                        <div class="form-group">
+                            <label>Postal code*</label>
+                            <input type="number" class="form-control" name="postalcode" value= '<?php echo $_GET['postalcode']?>' required>
+                        </div>
+                        <div class="form-group">
+                            <label>Shop*</label>
+                            <input type="text" class="form-control" name="shop" value= '<?php echo $_GET['shop']?>' required>
+                        </div>
                     </div>
                     <div class="modal-footer">
                         <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
-                        <input type="hidden" name="userID" value='<?php echo $_GET['userID'] ?>'>
-                        <button type="submit" value="Yes" class="btn btn-danger">Deactivate</button>
+                        <input type="hidden" name="userID" value= '<?php echo $_GET['userID']?>'>
+                        <button type="submit" value="Yes" class="btn btn-info">Save Changes</button>
                     </div>
                 </form>
             </div>
         </div>
+    </div>
     </div>
 <?php
  include_once "includes/footer.inc.php";

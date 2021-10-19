@@ -2,7 +2,9 @@
 
 include 'capdb.inc.php';
 
-$sql = "SELECT userID, name, surname, country, city, address, postalcode FROM users WHERE role = 4;";
+$sql = "SELECT userID, name, surname, country, city, address, postalcode, shop, cooperates 
+        FROM users
+        NATURAL JOIN shops;";
 
 $result = mysqli_query($conn, $sql);
 $resultCheck = mysqli_num_rows($result);
@@ -18,7 +20,9 @@ if($resultCheck > 0){
                  <td>".$row["city"]."</td>
                  <td>".$row["address"]."</td>
                  <td>".$row["postalcode"]."</td>
-                 
+                 <td>".$row["shop"]."</td>
+                 <td>".$row["cooperates"]."</td>
+
                 </tr> ";
         }
       }

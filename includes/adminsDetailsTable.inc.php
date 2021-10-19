@@ -2,7 +2,7 @@
 
 include 'capdb.inc.php';
 
-$sql = "SELECT userID, name, surname, country, city, address, postalcode FROM users WHERE role = 4;";
+$sql = "SELECT userID, name, surname, country, city, address, postalcode FROM users WHERE role = 1";
 
 $result = mysqli_query($conn, $sql);
 $resultCheck = mysqli_num_rows($result);

@@ -2,7 +2,7 @@
 
 include 'capdb.inc.php';
 
-$sql = "SELECT * FROM users WHERE status = 1 AND role = 2 OR role = 3 OR role = 4 ORDER BY userID ASC;";
+$sql = "SELECT userID, name, surname, email, phone, status FROM users WHERE status = 1 AND role = 2 OR role = 3 OR role = 4 ORDER BY userID ASC;";
 $result = mysqli_query($conn, $sql);
 $resultCheck = mysqli_num_rows($result);
 
@@ -15,15 +15,20 @@ if($resultCheck > 0){
                  <td>".$row["surname"]."</td>
                  <td>".$row["email"]."</td>
                  <td>".$row["phone"]."</td>
+                 ";
+
+                 if($row["status"] == 1 ){
+                   echo "<td>Activated</td>";
+                 }else{
+                  echo "<td>Deactivated</td>";
+                 }
                  
-                 <td>
+                 
+                echo " <td>";
                   
-                 <a href='verifiedUsers.php?userID=";
-        echo $row["userID"]."&name=";echo $row['name']."&surname=";;echo $row['surname']."&phone=";echo $row['phone']."&email=";;echo $row['email'];
-        echo "&modal=editCheckedUser' class='edit'><i class='fas fa-edit' data-toggle='tooltip' title='Edit'>&#xE254;</i></a>
-                 <a href='verifiedUsers.php?userID=";
+                 echo "<a href='verifiedUsers.php?userID=";
         echo $row["userID"];
-        echo "&modal=deleteVerifiedUser'  class='delete'><i class='far fa-trash-alt' data-toggle='tooltip' title='Delete'>&#xE872;</i></a>   
+        echo "&modal=deleteVerifiedUser'  class='delete'><i class='far fa-window-close' data-toggle='tooltip' title='Delete'>&#xE872;</i></a>   
                   </td>
                 </tr> ";
         

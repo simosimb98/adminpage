@@ -1,7 +1,9 @@
 <?php
 include_once "includes/header.inc.php";
 ?>
-
+        <link href="css/parsley.css" rel="stylesheet" type="text/css">
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js" type="text/javascript"></script>
+        <script src="http://parsleyjs.org/dist/parsley.min.js" type="text/javascript"></script>
   <!-- Begin Page Content -->
                 <div class="container-fluid">
 
@@ -9,7 +11,7 @@ include_once "includes/header.inc.php";
                     <h1 class="h3 mb-2 text-gray-800">Administrators</h1>
                     <p class="mb-4">These users can log in to the website and the admin page.</p>
 
-                    <a href="#addAdmin" class="btn btn-success" data-toggle="modal" style = "margin-left: 600px; margin-bottom: 10px;"><i class="material-icons">&#xE147;</i>Add new admin</span></a>
+                    <a href="#addAdmin" class="btn btn-success" data-toggle="modal" style = "margin-left: 1100px; margin-bottom: 10px;"><i class="material-icons">&#xE147;</i>Add new admin</span></a>
 
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
@@ -110,7 +112,7 @@ include_once "includes/header.inc.php";
             <div class="modal-content">
 
                 <body>
-                    <form action="includes/insertAdmin.inc.php" method="POST" data-toggle="validator">
+                    <form action="includes/insertAdmin.inc.php" method="POST" data-parsley-validate>
                         <div class="modal-header">
                             <h4 class="modal-title">Add a new admin</h4>
                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
@@ -118,37 +120,29 @@ include_once "includes/header.inc.php";
                         <div class="modal-body">
                             <div class="form-group">
                                 <label>Name*</label>
-                                <input type="text" class="form-control" name="name" required data-error = "Please enter a name">
-                                <div class="help-block with-errors"></div>
-
+                                <input type="text" class="form-control" name="name" required="">
                             </div>
                             <div class="form-group">
                                 <label>Surname*</label>
-                                <input type="text" class="form-control" name="surname" required data-error = "Please enter a surname"> 
-                                <div class="help-block with-errors"></div>
+                                <input type="text" class="form-control" name="surname" required=""> 
                             </div>
                             <div class="form-group">
                                 <label>Telephone*</label>
                                 <input type="number" class="form-control" name="phone" data-minlength="8" required data-error = "Please enter a phone number"
                                        data-minlength-error = "Minimum has to be 8 digits!">
-                                <div class="help-block with-errors"></div>
                             </div>
                             <div class="form-group">
                                 <label>Email*</label>
                                 <input type="email" class="form-control" name="email" required data-error = "Please enter an email">
-                                <div class="help-block with-errors"></div>
                             </div>
                             <div class="form-group">
                                 <label>Password*</label>
                                 <input type="password" class="form-control" id = "password" data-minlength="6" name="password" data-error= "Please enter a password"
-                                       required data-minlength-error = "Minimum has to be 6 characters">
-                                <div class="help-block with-errors"></div>
+                                       required="" data-minlength-error = "Minimum has to be 6 characters">
                             </div>
                             <div class="form-group">
                                 <label>Repeat Password*</label>
-                                <input type="password" class="form-control" name="Repassword" data-match="#password" data-error = "Please repeat the password"
-                                       required data-match-error = "Passwords don't match!">
-                                <div class="help-block with-errors"></div>
+                                <input type="password" class="form-control" name="Repassword" required="">
                             </div>
                          </div>
                         <div class="modal-footer">

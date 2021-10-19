@@ -2,13 +2,6 @@
 <!--Sweet Alert-->
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.all.min.js"></script>
 
-<footer class="sticky-footer bg-white">
-    <div class="container my-auto">
-        <div class="copyright text-center my-auto">
-            <span>Copyright &copy; Maxon 2021</span>
-        </div>
-    </div>
-</footer>
 <!-- End of Footer -->
 
 </div>
@@ -100,6 +93,41 @@ if (isset($_GET['deletion'])) {
           position: "center",
           icon: "error",
           title: "Deletion Failed!",
+          showConfirmButton: false,
+          timer: 1600                 
+        }).then(function() {
+          
+        })
+      });                 
+      </script>
+      ';
+    }
+  }
+
+  if (isset($_GET['deactivation'])) {
+    if ($_GET['deactivation'] == 'success') {
+      echo '
+        <script>
+        $(document).ready(function(){
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "User has been deactivated!",
+            showConfirmButton: false,
+            timer: 1600                 
+          }).then(function() {
+          })
+        });                 
+        </script>
+        ';
+    } else if ($_GET['deactivation'] == 'error') {
+      echo '
+      <script>
+      $(document).ready(function(){
+        Swal.fire({
+          position: "center",
+          icon: "error",
+          title: "Deactivation Failed!",
           showConfirmButton: false,
           timer: 1600                 
         }).then(function() {

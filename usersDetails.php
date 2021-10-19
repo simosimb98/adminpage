@@ -25,8 +25,6 @@ include_once "includes/header.inc.php";
                                             <th>City</th>
                                             <th>Address</th>
                                             <th>Postal Code</th>
-                                            <th>Shop</th>
-                                            <th>Actions</th>
                                         </tr>
                                     </thead>
                                     <tbody>
