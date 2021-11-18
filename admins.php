@@ -120,29 +120,30 @@ include_once "includes/header.inc.php";
                         <div class="modal-body">
                             <div class="form-group">
                                 <label>Name*</label>
-                                <input type="text" class="form-control" name="name" required="">
+                                <input type="text" class="form-control" name="name" required="" data-parsley-length="[4, 25]" data-parsley-required-message="Please enter a name">
                             </div>
                             <div class="form-group">
                                 <label>Surname*</label>
-                                <input type="text" class="form-control" name="surname" required=""> 
+                                <input type="text" class="form-control" name="surname" data-parsley-length="[4, 25]" required="" data-parsley-required-message="Please enter a surname"> 
                             </div>
                             <div class="form-group">
                                 <label>Telephone*</label>
-                                <input type="number" class="form-control" name="phone" data-minlength="8" required data-error = "Please enter a phone number"
-                                       data-minlength-error = "Minimum has to be 8 digits!">
+                                <input type="number" data-parsley-required-message="Please enter a phone number" name = "phone" class="form-control" placeholder="Phone" data-parsley-minlength="8" 
+                                 data-parsley-maxlength="16" required="">
                             </div>
                             <div class="form-group">
                                 <label>Email*</label>
-                                <input type="email" class="form-control" name="email" required data-error = "Please enter an email">
+                                <input type="email" data-parsley-required-message="Please enter your email address" name = "email" class="form-control" placeholder="Email" data-parsley-type="email" required="">
                             </div>
                             <div class="form-group">
                                 <label>Password*</label>
-                                <input type="password" class="form-control" id = "password" data-minlength="6" name="password" data-error= "Please enter a password"
-                                       required="" data-minlength-error = "Minimum has to be 6 characters">
+                                <input type="password" class="form-control" id = "password" name="password" data-error= "Please enter a password"
+                                       required="" data-parsley-length="[6, 30]">
                             </div>
                             <div class="form-group">
                                 <label>Repeat Password*</label>
-                                <input type="password" class="form-control" name="Repassword" required="">
+                                <input type="password" class="form-control" name="Repassword" required="" data-parsley-equalto="#password"
+                                data-parsley-equalto-message="Please enter the same password">
                             </div>
                          </div>
                         <div class="modal-footer">

@@ -5,6 +5,11 @@ if (!isset($_SESSION['role']) == 1) {
     header("Location:../index.php");
 }
 ?>
+
+<script src="https://code.jquery.com/jquery.js"></script>
+    <script src="../js/parsley.min.js"></script>
+    <link rel = "stylesheet" href="../css/parsley.css">
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -81,6 +86,8 @@ if (!isset($_SESSION['role']) == 1) {
                 </div>
             </li>
 
+
+
             <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
@@ -96,6 +103,37 @@ if (!isset($_SESSION['role']) == 1) {
                         <a class="collapse-item" href="adminsDetails.php">Admins Details</a>                       
                     </div>
                 </div>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+             <!-- Heading -->
+             <div class="sidebar-heading">
+                Messages
+            </div>
+
+             <!-- Nav Item - Newsletter -->
+             <li class="nav-item">
+                <a class="nav-link" href= "contactUsMessages.php">
+                <i class="fas fa-envelope"></i>
+               <span>Contact messages</span></a>
+            </li>
+
+
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+             <!-- Heading -->
+             <div class="sidebar-heading">
+                Newsletter
+            </div>
+
+             <!-- Nav Item - Newsletter -->
+             <li class="nav-item">
+                <a class="nav-link" href= "newsletter.php">
+                <i class="fas fa-at"></i>
+               <span>Newsletter</span></a>
             </li>
 
             <!-- Divider -->
@@ -127,12 +165,7 @@ if (!isset($_SESSION['role']) == 1) {
                 </div>
             </li>
 
-            <!-- Nav Item - Charts -->
-            <li class="nav-item">
-                <a class="nav-link" href="charts.php">
-                    <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Charts</span></a>
-            </li>
+           
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">

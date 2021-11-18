@@ -67,6 +67,12 @@
     </script>
 <?php } ?>
 
+<?php if (isset($_GET['modal']) && 'deletemessage' == $_GET['modal']) { ?>
+    <script type='text/javascript'>
+        $("#deletemessage").modal();
+    </script>
+<?php } ?>
+
 <!--Sweet Alerts-->
 <?php
 if (isset($_GET['deletion'])) {
@@ -173,6 +179,113 @@ if (isset($_GET['deletion'])) {
       ';
     }
   }
+
+  if (isset($_GET['registration'])) {
+    if ($_GET['registration'] == 'success') {
+      echo '
+        <script>
+        $(document).ready(function(){
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "New admin has been added succesfully!",
+            showConfirmButton: false,
+            timer: 1600                 
+          }).then(function() {
+          })
+        });                 
+        </script>
+        ';
+    } else if ($_GET['registration'] == 'error') {
+      echo '
+      <script>
+      $(document).ready(function(){
+        Swal.fire({
+          position: "center",
+          icon: "error",
+          title: "Something went wrong, please try again!",
+          showConfirmButton: false,
+          timer: 1600                 
+        }).then(function() {
+          
+        })
+      });                 
+      </script>
+      ';
+    }
+  }
+
+  if (isset($_GET['newsletter'])) {
+    if ($_GET['newsletter'] == 'sent') {
+      echo '
+        <script>
+        $(document).ready(function(){
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "Newsletter has been sent to all subscribers!",
+            showConfirmButton: false,
+            timer: 1600                 
+          }).then(function() {
+          })
+        });                 
+        </script>
+        ';
+    } else if ($_GET['newsletter'] == 'fail') {
+      echo '
+      <script>
+      $(document).ready(function(){
+        Swal.fire({
+          position: "center",
+          icon: "error",
+          title: "Something went wrong, please try again!",
+          showConfirmButton: false,
+          timer: 1600                 
+        }).then(function() {
+          
+        })
+      });                 
+      </script>
+      ';
+    }
+  }
+
+  if (isset($_GET['deleteMessage'])) {
+    if ($_GET['deleteMessage'] == 'success') {
+      echo '
+        <script>
+        $(document).ready(function(){
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "Message has been deleted succesfully!",
+            showConfirmButton: false,
+            timer: 1600                 
+          }).then(function() {
+          })
+        });                 
+        </script>
+        ';
+    } else if ($_GET['deleteMessage'] == 'error') {
+      echo '
+      <script>
+      $(document).ready(function(){
+        Swal.fire({
+          position: "center",
+          icon: "error",
+          title: "Something went wrong, please try again!",
+          showConfirmButton: false,
+          timer: 1600                 
+        }).then(function() {
+          
+        })
+      });                 
+      </script>
+      ';
+    }
+  }
+
+
 
 ?>
 
