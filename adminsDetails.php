@@ -15,7 +15,7 @@ include_once "includes/header.inc.php";
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <table class="table table-bordered" id="contentTables" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
                                             <th>User ID</th>
@@ -76,7 +76,6 @@ include_once "includes/header.inc.php";
                 </form>
             </div>
         </div>
-    </div>
     </div>
 <?php
  include_once "includes/footer.inc.php";

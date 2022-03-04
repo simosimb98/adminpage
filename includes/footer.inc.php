@@ -1,4 +1,11 @@
 <!-- Footer -->
+<footer class="sticky-footer bg-white">
+  <div class="container my-auto">
+    <div class="copyright text-center my-auto">
+      <span>Copyright &copy; Cyprus University of Technology <?php echo date("Y") ?></span>
+    </div>
+  </div>
+</footer>
 <!--Sweet Alert-->
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.all.min.js"></script>
 
@@ -21,6 +28,9 @@
 
 <!-- Core plugin JavaScript-->
 <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.css">
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.js"></script>
+<script type="text/javascript" charset="utf8" src="js/paginationTable.inc.js"></script>
 
 <!-- Custom scripts for all pages-->
 <script src="js/sb-admin-2.min.js"></script>
@@ -73,6 +83,12 @@
     </script>
 <?php } ?>
 
+<?php if (isset($_GET['modal']) && 'deleteOrder' == $_GET['modal']) { ?>
+    <script type='text/javascript'>
+        $("#deleteOrder").modal();
+    </script>
+<?php } ?>
+
 <!--Sweet Alerts-->
 <?php
 if (isset($_GET['deletion'])) {
@@ -92,6 +108,41 @@ if (isset($_GET['deletion'])) {
         </script>
         ';
     } else if ($_GET['deletion'] == 'error') {
+      echo '
+      <script>
+      $(document).ready(function(){
+        Swal.fire({
+          position: "center",
+          icon: "error",
+          title: "Deletion Failed!",
+          showConfirmButton: false,
+          timer: 1600                 
+        }).then(function() {
+          
+        })
+      });                 
+      </script>
+      ';
+    }
+  }
+
+if (isset($_GET['deleteOrder'])) {
+    if ($_GET['deleteOrder'] == 'success') {
+      echo '
+        <script>
+        $(document).ready(function(){
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "Order data has been deleted!",
+            showConfirmButton: false,
+            timer: 1600                 
+          }).then(function() {
+          })
+        });                 
+        </script>
+        ';
+    } else if ($_GET['deletionOrder'] == 'error') {
       echo '
       <script>
       $(document).ready(function(){

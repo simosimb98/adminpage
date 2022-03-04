@@ -15,7 +15,7 @@ include_once "includes/header.inc.php";
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <table id="contentTables" class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
                                             <th>Contact ID</th>
@@ -25,6 +25,7 @@ include_once "includes/header.inc.php";
                                             <th>Phone</th>
                                             <th>Subject</th>
                                             <th>Message</th>
+                                            <th>Date</th>
                                             <th>Actions</th>
                                         </tr>
                                     </thead>

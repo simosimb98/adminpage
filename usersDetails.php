@@ -15,7 +15,8 @@ include_once "includes/header.inc.php";
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <div class="table-wrapper">
+                                <table id="contentTables"class="table table-bordered" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
                                             <th>User ID</th>
@@ -31,6 +32,7 @@ include_once "includes/header.inc.php";
                                       <?php include_once "includes/usersDetailsTable.inc.php"; ?>
                                     </tbody>
                                 </table>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -77,6 +79,6 @@ include_once "includes/header.inc.php";
             </div>
         </div>
     </div>
-    </div>
 <?php
  include_once "includes/footer.inc.php";
+ ?>

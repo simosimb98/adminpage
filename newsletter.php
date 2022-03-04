@@ -21,7 +21,6 @@ include_once 'includes/header.inc.php';
                             <a href="#sendNewsletter" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Send newsletter</span></a>
                             <form action="includes/newsletterPDF.inc.php" method="POST">
                                 <div class="col d-flex justify-content-end mb-2">
-                                    <button type="submit" name="create_pdf5" class="btn btn-info"><i class="material-icons">&#xE147;</i>Generate report</button>
                             </form>
 
                     </div>
@@ -101,4 +100,3 @@ include_once 'includes/header.inc.php';
 
 <?php
 include_once 'includes/footer.inc.php';
-?>
