@@ -105,55 +105,89 @@ include_once "includes/header.inc.php";
         </div>
     </div>
 
-     <!-- Add Modal HTML -->
-     <div id="addAdmin" class="modal fade">
-        <div class="modal-dialog">
-            <div class="modal-content">
-
-                <body>
-                    <form action="includes/insertAdmin.inc.php" method="POST" data-parsley-validate>
-                        <div class="modal-header">
-                            <h4 class="modal-title">Add a new admin</h4>
-                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                        </div>
-                        <div class="modal-body">
-                            <div class="form-group">
-                                <label>Name*</label>
-                                <input type="text" class="form-control" name="name" required="" data-parsley-length="[4, 25]" data-parsley-required-message="Please enter a name">
-                            </div>
-                            <div class="form-group">
-                                <label>Surname*</label>
-                                <input type="text" class="form-control" name="surname" data-parsley-length="[4, 25]" required="" data-parsley-required-message="Please enter a surname"> 
-                            </div>
-                            <div class="form-group">
-                                <label>Telephone*</label>
-                                <input type="number" data-parsley-required-message="Please enter a phone number" name = "phone" class="form-control" placeholder="Phone" data-parsley-minlength="8" 
-                                 data-parsley-maxlength="16" required="">
-                            </div>
-                            <div class="form-group">
-                                <label>Email*</label>
-                                <input type="email" data-parsley-required-message="Please enter your email address" name = "email" class="form-control" placeholder="Email" data-parsley-type="email" required="">
-                            </div>
-                            <div class="form-group">
-                                <label>Password*</label>
-                                <input type="password" class="form-control" id = "password" name="password" data-error= "Please enter a password"
-                                       required="" data-parsley-length="[6, 30]">
-                            </div>
-                            <div class="form-group">
-                                <label>Repeat Password*</label>
-                                <input type="password" class="form-control" name="Repassword" required="" data-parsley-equalto="#password"
-                                data-parsley-equalto-message="Please enter the same password">
-                            </div>
-                         </div>
-                        <div class="modal-footer">
-                            <input type="button" class="btn btn-defauls" name="cancel" data-dismiss="modal" value="Cancel">
-                            <input type="submit" class="btn btn-success" name="submit" value="Add">
-                        </div>
-                    </form>
-                </body>
-            </div>
+    <div id="addAdmin" class="modal fade" >
+    <div class="modal-dialog ">
+    <div class="modal-content ">
+        <form id="registerForm" action="includes/insertAdmin.inc.php" method="POST" data-parsley-validate="">
+        <div class="modal-header">
+            <h4 class="modal-title">Register</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
         </div>
+        <div class="modal-body">
+            <div style="float: left;">
+            <div class="form-group">
+                <label>Name</label>
+                <input type="text" data-parsley-required-message="Please enter your name" name = "firstname" class="form-control" placeholder="Name" data-parsley-length="[4, 25]" data-parsley-group="block1" required="">
+                <div class="valid-feedback">
+                    Looks good!
+                    </div>
+            </div>
+            <div class="form-group" >
+                <label>Surname</label>
+                <input type="text" data-parsley-required-message="Please enter your last name" name = "surname" class="form-control" placeholder="Surname" data-parsley-length="[4, 25]" data-parsley-group="block1" required="">
+            </div>
+            </div>
+            <div style="float: right;">
+            <div class="form-group">
+                <label>Email</label>
+                <input type="email" data-parsley-required-message="Please enter your email address" name = "email" class="form-control" placeholder="Email" data-parsley-type="email" required="">
+            </div>
+            <div class="form-group">
+                <label>Phone</label>
+                <input type="number" data-parsley-required-message="Please enter your phone number" name = "phone" class="form-control" placeholder="Phone" data-parsley-minlength="8" 
+                    data-parsley-maxlength="16" required="">
+            </div>
+            </div>
+            <div style="float: left;">
+            <div class="form-group">
+                <label>Password</label>
+                <input type="password" data-parsley-required-message="Please enter a password" name = "password" id = "password" class="form-control" placeholder="Password" data-parsley-length="[6, 25]" required="">
+            </div>
+            </div>
+            <div style="float: right;">
+            <div class="form-group">
+            <label>Repeat Password</label>
+                <input type="password" class="form-control" name="Repassword" required="" data-parsley-equalto="#password"
+                data-parsley-equalto-message="Please enter the same password" placeholder="Repeat password" data-parsley-required-message="Please enter your password">
+            </div>
+            </div>
+            <div style="float: left;">
+        <div class="form-group">
+                <label>City</label>
+                <input type="text" data-parsley-required-message="Please enter your city" name = "city" class="form-control" placeholder="City" data-parsley-length="[1, 25]" data-parsley-group="block1" required="">
+                <div class="valid-feedback">
+                    Looks good!
+                    </div>
+            </div>
+            </div>
+            <div style="float: right;">
+            <div class="form-group">
+                <label>Country</label>
+                <input type="text" data-parsley-required-message="Please enter your last country" name = "country" class="form-control" placeholder="Country" data-parsley-length="[1, 25]" data-parsley-group="block1" required="">
+            </div>
+            </div>
+            <div style="float: left;">
+            <div class="form-group">
+                <label>Address</label>
+                <input type="text" data-parsley-required-message="Please enter your address" name = "address" class="form-control" placeholder="Address" data-parsley-length="[1,40]" required="">
+            </div>
+            </div>
+            <div style="float: right;">
+            <div class="form-group">
+                <label>Postal Code</label>
+                <input type="number" data-parsley-required-message="Please enter your postal code" name = "postalcode" class="form-control" placeholder="Postal Code" data-parsley-minlength="4" 
+                    data-parsley-maxlength="16" required="">
+            </div>    
+            </div>  
+        </div>
+        <div class="modal-footer d-flex justify-content-between">
+            <input type="button" class="btn btn-danger" data-dismiss="modal" value="Cancel">
+            <input type="submit" class="btn btn-info" value="Register" name="submitRegister"></input>
+        </div>
+        </form>
+       </div>
     </div>
+</div>
 
 <?php
  include_once "includes/footer.inc.php";

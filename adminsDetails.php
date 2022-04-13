@@ -5,8 +5,8 @@ include_once "includes/header.inc.php";
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">Verified Users</h1>
-                    <p class="mb-4">These users can log in to the website.</p>
+                    <h1 class="h3 mb-2 text-gray-800">Administators Details</h1>
+                    <p class="mb-4">Administrators details that allready exist.</p>
 
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
@@ -25,6 +25,7 @@ include_once "includes/header.inc.php";
                                             <th>City</th>
                                             <th>Address</th>
                                             <th>Postal Code</th>
+                                            <th>Actions</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -42,30 +43,30 @@ include_once "includes/header.inc.php";
             <!-- End of Main Content -->
 
              <!-- Edit Modal HTML -->
-    <div id="editUserDetails" class="modal fade">
+    <div id="editAdminInfo" class="modal fade">
         <div class="modal-dialog">
             <div class="modal-content">
-                <form action="includes/editUserDetails.inc.php" method="POST">
+                <form action="includes/editAdminInfo.inc.php" method="POST">
                     <div class="modal-header">
                         <h4 class="modal-title">Edit User Details</h4>
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                     </div>
                     <div class="modal-body">
-                        <div class="form-group">
-                            <label>City*</label>
-                            <input type="text" class="form-control" name="city" value= '<?php echo $_GET['city']?>' required>
+                    <div class="form-group">
+                            <label>Country</label>
+                            <input type="text" class="form-control" name="country" value= '<?php echo $_GET['country'];?>' required>
                         </div>
                         <div class="form-group">
-                            <label>Address*</label>
-                            <input type="text" class="form-control" name="address" value= '<?php echo $_GET['address']?>' required>
+                            <label>City</label>
+                            <input type="text" class="form-control" name="city" value= '<?php echo $_GET['city'];?>' required>
                         </div>
                         <div class="form-group">
-                            <label>Postal code*</label>
-                            <input type="number" class="form-control" name="postalcode" value= '<?php echo $_GET['postalcode']?>' required>
+                            <label>Address</label>
+                            <input type="text" class="form-control" name="address" value= '<?php echo $_GET['address'];?>' required>
                         </div>
                         <div class="form-group">
-                            <label>Shop*</label>
-                            <input type="text" class="form-control" name="shop" value= '<?php echo $_GET['shop']?>' required>
+                            <label>Postal code</label>
+                            <input type="number" class="form-control" name="postalcode" value= '<?php echo $_GET['postalcode'];?>' required>
                         </div>
                     </div>
                     <div class="modal-footer">

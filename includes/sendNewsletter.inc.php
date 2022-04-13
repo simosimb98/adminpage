@@ -19,7 +19,7 @@ if (isset($_POST['submitSendNewsletter']) && isset($_FILES) && (bool) $_FILES) {
 
     $subject = $_POST['subject'];
     $message = $_POST['message'];
-    $headers = "From: Maxon Auto Parts <simimb98@gmail.com>";
+    $headers = "From: Maxon Auto Parts <maxon09987@gmail.com>";
 
     $semi_rand = md5(time());
     $mime_boundary = "==Multipart_Boundary_x{$semi_rand}x";

@@ -18,7 +18,13 @@ if($resultCheck > 0){
                  <td>".$row["city"]."</td>
                  <td>".$row["address"]."</td>
                  <td>".$row["postalcode"]."</td>
+
+                 <td>
                  
-                </tr> ";
+                 <a href='adminsDetails.php?userID=";
+                 echo $row["userID"]."&country=";echo $row['country']."&city=";;echo $row['city']."&address=";echo $row['address']."&postalcode=";;echo $row['postalcode'];
+                 echo "&modal=editAdminInfo' class='edit'><i class='fas fa-edit' data-toggle='tooltip' title='Edit'>&#xE254;</i></a>  
+                           </td>
+                         </tr> ";
         }
       }

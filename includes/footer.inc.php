@@ -26,11 +26,34 @@
 <script src="vendor/jquery/jquery.min.js"></script>
 <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-<!-- Core plugin JavaScript-->
-<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.css">
-<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.js"></script>
-<script type="text/javascript" charset="utf8" src="js/paginationTable.inc.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+<script>
+$(document).ready(function() {
+    $('#contentTables').DataTable( {
+        initComplete: function () {
+            this.api().columns().every( function () {
+                var column = this;
+                var select = $('<select><option value=""></option></select>')
+                    .appendTo( $(column.header()).empty() )
+                    .on( 'change', function () {
+                        var val = $.fn.dataTable.util.escapeRegex(
+                            $(this).val()
+                        );
+ 
+                        column
+                            .search( val ? '^'+val+'$' : '', true, false )
+                            .draw();
+                    } );
+ 
+                column.data().unique().sort().each( function ( d, j ) {
+                    select.append( '<option value="'+d+'">'+d+'</option>' )
+                } );
+            } );
+        }
+    } );
+} );
+</script>
 
 <!-- Custom scripts for all pages-->
 <script src="js/sb-admin-2.min.js"></script>
@@ -71,6 +94,12 @@
     </script>
 <?php } ?>
 
+<?php if (isset($_GET['modal']) && 'editAdminInfo' == $_GET['modal']) { ?>
+    <script type='text/javascript'>
+        $("#editAdminInfo").modal();
+    </script>
+<?php } ?>
+
 <?php if (isset($_GET['modal']) && 'addAdmin' == $_GET['modal']) { ?>
     <script type='text/javascript'>
         $("#addAdmin").modal();
@@ -88,6 +117,13 @@
         $("#deleteOrder").modal();
     </script>
 <?php } ?>
+
+<?php if (isset($_GET['modal']) && 'deleteNewsletterUser' == $_GET['modal']) { ?>
+    <script type='text/javascript'>
+        $("#deleteNewsletterUser").modal();
+    </script>
+<?php } ?>
+
 
 <!--Sweet Alerts-->
 <?php
@@ -336,8 +372,76 @@ if (isset($_GET['deleteOrder'])) {
     }
   }
 
+  if (isset($_GET['deleteNews'])) {
+    if ($_GET['deleteNews'] == 'success') {
+      echo '
+        <script>
+        $(document).ready(function(){
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "Subscriber has been deleted succesfully!",
+            showConfirmButton: false,
+            timer: 1600                 
+          }).then(function() {
+          })
+        });                 
+        </script>
+        ';
+    } else if ($_GET['deleteNews'] == 'error') {
+      echo '
+      <script>
+      $(document).ready(function(){
+        Swal.fire({
+          position: "center",
+          icon: "error",
+          title: "Something went wrong, please try again!",
+          showConfirmButton: false,
+          timer: 1600                 
+        }).then(function() {
+          
+        })
+      });                 
+      </script>
+      ';
+    }
+  }
 
-
+  if (isset($_GET['update'])) {
+    if ($_GET['update'] == 'successful') {
+      echo '
+        <script>
+        $(document).ready(function(){
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "New details have been added!",
+            showConfirmButton: false,
+            timer: 1600                 
+          }).then(function() {
+          })
+        });                 
+        </script>
+        ';
+    } else if ($_GET['update'] == 'stmtFailed') {
+      echo '
+      <script>
+      $(document).ready(function(){
+        Swal.fire({
+          position: "center",
+          icon: "error",
+          title: "Something went wrong, please try again!",
+          showConfirmButton: false,
+          timer: 1600                 
+        }).then(function() {
+          
+        })
+      });                 
+      </script>
+      ';
+    }
+  }
+  
 ?>
 
 </body>
