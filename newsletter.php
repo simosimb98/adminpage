@@ -9,15 +9,17 @@ include_once 'includes/header.inc.php';
 </style>
 <!-- Begin Page Content -->
 <div class="container-fluid">
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+<h1 class="h3 mb-0 text-gray-800">Newsletter</h1>
+                        <a href="#manualNewsletter" class="btn btn-primary" data-toggle="modal"><i class="fas fa-question-circle">
+                        </i> <span>Help</span></a>
+                    </div>
     <!-- Content Row -->
     <div class="row">
         <div class="table-responsive">
             <div class="table-wrapper">
                 <div class="table-title">
-                    <div class="row">
-                        <div class="col-sm-4">
-                            <h2>Manage <b>Newsletter</b></h2>
-                        </div>
+                    <div class="row" style="margin-left: 1110px;">
                             <a href="#sendNewsletter" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Send newsletter</span></a>
                             <form action="includes/newsletterPDF.inc.php" method="POST">
                                 <div class="col d-flex justify-content-end mb-2">
@@ -26,6 +28,13 @@ include_once 'includes/header.inc.php';
                     </div>
                 </div>
                 <table data-page-length='5' id="contentTables" class="table table-striped table-hover">
+                <thead>
+                        <tr>
+                            <th>Entry ID</th>
+                            <th>Email</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
                     <thead>
                         <tr>
                             <th>Entry ID</th>
@@ -96,6 +105,21 @@ include_once 'includes/header.inc.php';
         </div>
     </div>
 </div>
+
+<!-- Manual Modal HTML -->
+<div id="manualNewsletter" class="modal fade">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">              
+                   <?php
+                      include_once 'manuals/manualNewsletter.html';         
+                   ?>  
+                    <div class="modal-footer">
+                        <input type="button" class="btn btn-primary" data-dismiss="modal" value="Ok" ?>
+                    </div>
+               
+            </div>
+        </div>
+    </div>
 
 
 <?php

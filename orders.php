@@ -4,9 +4,13 @@ include_once "includes/header.inc.php";
 
   <!-- Begin Page Content -->
                 <div class="container-fluid">
+                <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                <h1 class="h3 mb-2 text-gray-800">Orders</h1>
+                        <a href="#manualOrders" class="btn btn-primary" data-toggle="modal"><i class="fas fa-question-circle">
+                        </i> <span>Help</span></a>
+                    </div>
      
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">Orders</h1>
                     <p class="mb-4">Orders coming in from users</p>
 
                     <!-- DataTales Example -->
@@ -18,6 +22,16 @@ include_once "includes/header.inc.php";
                             <div class="table-responsive">
                             <div class="table-wrapper">
                                 <table class="table table-bordered" id="contentTables" width="100%" cellspacing="0">
+                                <thead>
+                                        <tr>
+                                            <th>Order Status</th>
+                                            <th>Order ID</th>
+                                            <th>Purchased By</th>
+                                            <th>Date of Purchase</th>
+                                            <th class="text-center">Orders</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
                                  <thead>
                                         <tr>
                                             <th>Order Status</th>
@@ -62,6 +76,21 @@ include_once "includes/header.inc.php";
                         <button type="submit" value="Yes" class="btn btn-danger">Delete</button>
                     </div>
                 </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Manual Modal HTML -->
+<div id="manualOrders" class="modal fade">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">              
+                   <?php
+                      include_once 'manuals/manualOrders.html';         
+                   ?>  
+                    <div class="modal-footer">
+                        <input type="button" class="btn btn-primary" data-dismiss="modal" value="Ok" ?>
+                    </div>
+               
             </div>
         </div>
     </div>

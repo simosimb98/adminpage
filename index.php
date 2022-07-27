@@ -6,15 +6,15 @@
  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
  
  </head>
- 
+  
  <!-- Begin Page Content -->
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
                         <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-                        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                                class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+                        <a href="#manualIndex" class="btn btn-primary" data-toggle="modal"><i class="fas fa-question-circle">
+                        </i> <span>Help</span></a>
                     </div>
 
                     <!-- Content Row -->
@@ -172,7 +172,7 @@
                                                                     INNER JOIN partsdetails AS b ON  a.userID = b.userID
                                                                     INNER JOIN orders_products AS c ON b.carpartID = c.carpartID 
                                                                     GROUP BY name,surname ORDER BY SUM(orderquantity) DESC
-                                                                    LIMIT 2;";
+                                                                    LIMIT 3;";
 
                                                     $resultSellers = mysqli_query($conn, $topSellers);
 
@@ -196,6 +196,7 @@
                                                 </tr>
                                                 <tr>
                                                 <th>3</th>
+                                                <td><?php echo $usersName[2];?> <?php echo $usersSurname[2];?></td>
                                                 </tr>
                                             </thead>
                                         </table>
@@ -215,7 +216,7 @@
                             <!-- Card Header - Dropdown -->
                             <div
                                 class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                <h6 class="m-0 font-weight-bold text-primary">Users by Country</h6>
+                                <h6 class="m-0 font-weight-bold text-primary">Earnings Overview</h6>
                             </div>
                             <!-- Card Body -->
                             <div class="card-body" style="height: 450px;">
@@ -264,6 +265,7 @@
                                                 <th>2</th>
                                                 <td><?php echo $productsname[1];?></td>
                                                 </tr>
+                                                
 
                                                 <tr>
                                                 <th>3</th>
@@ -286,28 +288,47 @@
             </div>
           <!-- End of Main Content -->
 
+           <!-- Manual Modal HTML -->
+   <div id="manualIndex" class="modal fade">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">              
+                   <?php
+                      include_once 'manuals/manualIndex.html';         
+                   ?>  
+                    <div class="modal-footer">
+                        <input type="button" class="btn btn-primary" data-dismiss="modal" value="Ok" ?>
+                    </div>
+               
+            </div>
+        </div>
+    </div>
+        
 <?php include_once 'includes/earningsChart.inc.php';?>
 
 <?php
-$sqlCountry = "SELECT COUNT(userID) AS totalusers, country, status FROM users WHERE status = 1 GROUP BY country;";
+$sql = "SELECT date_format(purchaseDate,'%b') AS purchase, SUM(orderprice) AS total
+FROM orders AS a
+INNER JOIN orders_products AS b ON a.orderID = b.orderID
+WHERE a.purchaseDate > now() - INTERVAL 3 MONTH
+GROUP BY date_format(purchaseDate,'%b');";
 
-$resultCountry = mysqli_query($conn, $sqlCountry);
+$resultMonths = mysqli_query($conn, $sql);
 
-foreach($resultCountry as $countrydata){
+foreach($resultMonths as $monthsData){
 
-    $countries[] = $countrydata['country'];
-    $usersNo[] = $countrydata['totalusers'];
+    $months2[] = $monthsData['purchase'];
+    $total2[] = $monthsData['total'];
 }
 ?>
 
 <script>
 
-const labels2 = <?php echo json_encode($countries)?>;
+const labels2 = <?php echo json_encode($months2)?>;
 const data2 = {
   labels: labels2,
   datasets: [{
-    label: 'Countries Chart',
-    data: <?php echo json_encode($usersNo)?>,
+    label: 'Earnings bar chart',
+    data: <?php echo json_encode($total2)?>,
     backgroundColor: [
       'rgba(255, 99, 132, 0.2)',
       'rgba(255, 159, 64, 0.2)',

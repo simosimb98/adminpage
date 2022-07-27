@@ -6,12 +6,16 @@ include_once "includes/header.inc.php";
         <script src="http://parsleyjs.org/dist/parsley.min.js" type="text/javascript"></script>
   <!-- Begin Page Content -->
                 <div class="container-fluid">
+                <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                <h1 class="h3 mb-2 text-gray-800">Administrators</h1>
+                        <a href="#manualAdmins" class="btn btn-primary" data-toggle="modal"><i class="fas fa-question-circle">
+                        </i> <span>Help</span></a>
+                    </div>
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">Administrators</h1>
                     <p class="mb-4">These users can log in to the website and the admin page.</p>
 
-                    <a href="#addAdmin" class="btn btn-success" data-toggle="modal" style = "margin-left: 1100px; margin-bottom: 10px;"><i class="material-icons">&#xE147;</i>Add new admin</span></a>
+                    <a href="#addAdmin" class="btn btn-success" data-toggle="modal" style = "margin-left: 1080px; margin-bottom: 10px;"><i class="material-icons">&#xE147;</i>Add new admin</span></a>
 
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
@@ -21,6 +25,16 @@ include_once "includes/header.inc.php";
                         <div class="card-body">
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="contentTables" id="dataTable" width="100%" cellspacing="0">
+                                <thead>
+                                        <tr>
+                                            <th>User ID</th>
+                                            <th>Name</th>
+                                            <th>Surname</th>
+                                            <th>Email</th>
+                                            <th>Phone</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
                                     <thead>
                                         <tr>
                                             <th>User ID</th>
@@ -106,8 +120,8 @@ include_once "includes/header.inc.php";
     </div>
 
     <div id="addAdmin" class="modal fade" >
-    <div class="modal-dialog ">
-    <div class="modal-content ">
+    <div class="modal-dialog" >
+    <div class="modal-content" style="min-width:101%">
         <form id="registerForm" action="includes/insertAdmin.inc.php" method="POST" data-parsley-validate="">
         <div class="modal-header">
             <h4 class="modal-title">Register</h4>
@@ -117,14 +131,16 @@ include_once "includes/header.inc.php";
             <div style="float: left;">
             <div class="form-group">
                 <label>Name</label>
-                <input type="text" data-parsley-required-message="Please enter your name" name = "firstname" class="form-control" placeholder="Name" data-parsley-length="[4, 25]" data-parsley-group="block1" required="">
+                <input type="text" data-parsley-required-message="Please enter your name" name = "firstname" class="form-control" placeholder="Name" data-parsley-length="[4, 25]" data-parsley-group="block1" 
+                data-parsley-length-message="Must be between 4 and 25 characters" required="">
                 <div class="valid-feedback">
                     Looks good!
                     </div>
             </div>
             <div class="form-group" >
                 <label>Surname</label>
-                <input type="text" data-parsley-required-message="Please enter your last name" name = "surname" class="form-control" placeholder="Surname" data-parsley-length="[4, 25]" data-parsley-group="block1" required="">
+                <input type="text" data-parsley-required-message="Please enter your last name" name = "surname" class="form-control" placeholder="Surname" data-parsley-length="[4, 25]" data-parsley-group="block1"
+                data-parsley-length-message="Must be between 4 and 25 characters" required="">
             </div>
             </div>
             <div style="float: right;">
@@ -134,14 +150,16 @@ include_once "includes/header.inc.php";
             </div>
             <div class="form-group">
                 <label>Phone</label>
-                <input type="number" data-parsley-required-message="Please enter your phone number" name = "phone" class="form-control" placeholder="Phone" data-parsley-minlength="8" 
-                    data-parsley-maxlength="16" required="">
+                <input type="number" data-parsley-required-message="Please enter your phone number" name = "phone" class="form-control" placeholder="Phone" data-parsley-minlength="8"
+                data-parsley-minlength-message="Must be at least 8 digits" 
+                    data-parsley-maxlength="16" data-parsley-maxlength-message="Must be less than 17 digits" required="">
             </div>
             </div>
             <div style="float: left;">
             <div class="form-group">
                 <label>Password</label>
-                <input type="password" data-parsley-required-message="Please enter a password" name = "password" id = "password" class="form-control" placeholder="Password" data-parsley-length="[6, 25]" required="">
+                <input type="password" data-parsley-required-message="Please enter a password" name = "password" id = "password" class="form-control" placeholder="Password" data-parsley-length="[6, 25]" 
+                data-parsley-length-message="Must be between 6 and 25 characters" required="">
             </div>
             </div>
             <div style="float: right;">
@@ -154,7 +172,8 @@ include_once "includes/header.inc.php";
             <div style="float: left;">
         <div class="form-group">
                 <label>City</label>
-                <input type="text" data-parsley-required-message="Please enter your city" name = "city" class="form-control" placeholder="City" data-parsley-length="[1, 25]" data-parsley-group="block1" required="">
+                <input type="text" data-parsley-required-message="Please enter your city" name = "city" class="form-control" placeholder="City" data-parsley-length="[1, 25]" data-parsley-group="block1" 
+                data-parsley-length-message="Must be between 2 and 25 characters" required="">
                 <div class="valid-feedback">
                     Looks good!
                     </div>
@@ -163,20 +182,23 @@ include_once "includes/header.inc.php";
             <div style="float: right;">
             <div class="form-group">
                 <label>Country</label>
-                <input type="text" data-parsley-required-message="Please enter your last country" name = "country" class="form-control" placeholder="Country" data-parsley-length="[1, 25]" data-parsley-group="block1" required="">
+                <input type="text" data-parsley-required-message="Please enter your country" name = "country" class="form-control" placeholder="Country" data-parsley-length="[1, 25]" data-parsley-group="block1" 
+                data-parsley-length-message="Must be between 2 and 25 characters" required="">
             </div>
             </div>
             <div style="float: left;">
             <div class="form-group">
                 <label>Address</label>
-                <input type="text" data-parsley-required-message="Please enter your address" name = "address" class="form-control" placeholder="Address" data-parsley-length="[1,40]" required="">
+                <input type="text" data-parsley-required-message="Please enter your address" name = "address" class="form-control" placeholder="Address" data-parsley-length="[1,40]" 
+                data-parsley-length-message="Must be between 1 and 40 characters" required="">
             </div>
             </div>
             <div style="float: right;">
             <div class="form-group">
                 <label>Postal Code</label>
                 <input type="number" data-parsley-required-message="Please enter your postal code" name = "postalcode" class="form-control" placeholder="Postal Code" data-parsley-minlength="4" 
-                    data-parsley-maxlength="16" required="">
+                data-parsley-minlength-message="Must be at least 8 digits"
+                    data-parsley-maxlength="16" data-parsley-maxlength-message="Must be less than 17 digits" required="">
             </div>    
             </div>  
         </div>
@@ -188,6 +210,21 @@ include_once "includes/header.inc.php";
        </div>
     </div>
 </div>
+
+<!-- Manual Modal HTML -->
+<div id="manualAdmins" class="modal fade">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">              
+                   <?php
+                      include_once 'manuals/manualAdmins.html';         
+                   ?>  
+                    <div class="modal-footer">
+                        <input type="button" class="btn btn-primary" data-dismiss="modal" value="Ok" ?>
+                    </div>
+               
+            </div>
+        </div>
+    </div>
 
 <?php
  include_once "includes/footer.inc.php";

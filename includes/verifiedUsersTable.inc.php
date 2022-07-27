@@ -28,7 +28,7 @@ if($resultCheck > 0){
                   
                  echo "<a href='verifiedUsers.php?userID=";
         echo $row["userID"];
-        echo "&modal=deleteVerifiedUser'  class='delete'><i class='far fa-window-close' data-toggle='tooltip' title='Delete'>&#xE872;</i></a>   
+        echo "&modal=deleteVerifiedUser'  class='delete'><i class='far fa-window-close' data-toggle='tooltip' title='Deactivate'>&#xE872;</i></a>   
                   </td>
                 </tr> ";
         

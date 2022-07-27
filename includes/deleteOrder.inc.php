@@ -2,7 +2,7 @@
 if (isset($_POST['orderID'])  && !empty($_POST['orderID'])) {
 
     require_once 'capdb.inc.php';
-    $param_id = $_POST['contactID'];
+    $param_id = $_POST['orderID'];
 
     $sql = "DELETE FROM orders where orderID = ?";
 
@@ -20,7 +20,7 @@ if (isset($_POST['orderID'])  && !empty($_POST['orderID'])) {
     }
 
 } else {
-    if (empty($_POST['userID'])) {
+    if (empty($_POST['orderID'])) {
         header('Location: ../orders.php?deleteOrder=empty');
         exit();
     }

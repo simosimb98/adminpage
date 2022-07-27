@@ -3,9 +3,13 @@ include_once "includes/header.inc.php";
 ?>
   <!-- Begin Page Content -->
                 <div class="container-fluid">
+                <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                <h1 class="h3 mb-2 text-gray-800">Administators Shipping Details</h1>
+                        <a href="#manualShippingAdmin" class="btn btn-primary" data-toggle="modal"><i class="fas fa-question-circle">
+                        </i> <span>Help</span></a>
+                    </div>
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">Administators Details</h1>
                     <p class="mb-4">Administrators details that allready exist.</p>
 
                     <!-- DataTales Example -->
@@ -16,6 +20,18 @@ include_once "includes/header.inc.php";
                         <div class="card-body">
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="contentTables" id="dataTable" width="100%" cellspacing="0">
+                                <thead>
+                                        <tr>
+                                            <th>User ID</th>
+                                            <th>Name</th>
+                                            <th>Surname</th>
+                                            <th>Country</th>
+                                            <th>City</th>
+                                            <th>Address</th>
+                                            <th>Postal Code</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
                                     <thead>
                                         <tr>
                                             <th>User ID</th>
@@ -75,6 +91,21 @@ include_once "includes/header.inc.php";
                         <button type="submit" value="Yes" class="btn btn-info">Save Changes</button>
                     </div>
                 </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Manual Modal HTML -->
+   <div id="manualShippingAdmin" class="modal fade">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">              
+                   <?php
+                      include_once 'manuals/manualShippingAdmin.html';         
+                   ?>  
+                    <div class="modal-footer">
+                        <input type="button" class="btn btn-primary" data-dismiss="modal" value="Ok" ?>
+                    </div>
+               
             </div>
         </div>
     </div>

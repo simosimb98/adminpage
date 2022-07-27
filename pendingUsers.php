@@ -3,9 +3,13 @@ include_once "includes/header.inc.php";
 ?>
 <!-- Begin Page Content -->
 <div class="container-fluid">
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+<h1 class="h3 mb-2 text-gray-800">Pending Users</h1>
+                        <a href="#manualPendingUsers" class="btn btn-primary" data-toggle="modal"><i class="fas fa-question-circle">
+                        </i> <span>Help</span></a>
+                    </div>
 
     <!-- Page Heading -->
-    <h1 class="h3 mb-2 text-gray-800">Checking Users</h1>
     <p class="mb-4">Check if the users data is valid or not.</p>
 
     <!-- DataTales Example -->
@@ -16,6 +20,16 @@ include_once "includes/header.inc.php";
         <div class="card-body">
             <div class="table-responsive">
                 <table id="contentTables" class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                        <tr>
+                            <th>User ID</th>
+                            <th>Name</th>
+                            <th>Surname</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
                     <thead>
                         <tr>
                             <th>User ID</th>
@@ -86,5 +100,20 @@ include_once "includes/header.inc.php";
         </div>
     </div>
 </div>
+
+                 <!-- Manual Modal HTML -->
+                 <div id="manualPendingUsers" class="modal fade">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">              
+                   <?php
+                      include_once 'manuals/manualPendingUsers.html';         
+                   ?>  
+                    <div class="modal-footer">
+                        <input type="button" class="btn btn-primary" data-dismiss="modal" value="Ok" ?>
+                    </div>
+               
+            </div>
+        </div>
+    </div>
 <?php
 include_once "includes/footer.inc.php";

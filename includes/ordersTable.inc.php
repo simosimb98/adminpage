@@ -31,8 +31,7 @@ if($resultCheck > 0){
                  <td>".$row["purchaseDate"]."</td>
                  <td>
 
-                 <div class='table-wrapper'>
-                 <table class='table table-bordered' width='50%' cellspacing='0'>
+                 <table class='table table-bordered'>
                  <thead>
                    <tr>
                         <th>Item</th>
@@ -48,7 +47,8 @@ if($resultCheck > 0){
                                     FROM orders AS a
                                     INNER JOIN orders_products AS b ON a.orderID = b.orderID
                                     INNER JOIN partsdetails AS c ON c.carpartID = b.carpartID
-                                    WHERE b.orderID = '".$row['orderID']."';";
+                                    WHERE b.orderID = '".$row['orderID']."' ORDER BY a.orderID ASC;";
+                                    
                                     
                     $resultorder = mysqli_query($conn, $orderquery);
 
@@ -64,17 +64,20 @@ if($resultCheck > 0){
                         </tr>
                         ";
                     }
-                  echo  "</tbody>
-                    </table>
+                  echo  "
                     
-                 
+                    </tbody>
+                    </table>
+                    </td>
+                    
                  <td>";
                   
-
         echo "<a href='orders.php?orderID=";
         echo $row["orderID"];
         echo "&modal=deleteOrder' class='delete'><i class='far fa-trash-alt' data-toggle='tooltip' title='Delete'>&#xE872;</i></a>   
                   </td>
-                </tr> ";
+                  </tr>
+      
+                 ";
         }
       }
